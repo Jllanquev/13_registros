@@ -11,35 +11,34 @@ struct EMP{
 int main(){
     EMP EMPLEADOS[100];
     int n;
-    cout<<"Ingrese la cantidad de empleados: ";
+    cout<<"Cantidad de empleados: ";
     cin>>n;
 
     for(int i=0;i<n;i++){
-        cout<<"Ingrese el numero del empleado: ";
+    	cout<<"\n\n***REGISTRO DE EMPLEADO****";
+        cout<<"\nNumero del empleado: ";
         cin>>EMPLEADOS[i].num;
-        cout<<"Ingrese el nombre del empleado: ";
+        cout<<"Nombre: ";
         cin.ignore();
         getline(cin,EMPLEADOS[i].nom);
         for(int j=0;j<12;j++){
-            cout<<"ingrese el numero de ventas: ";
+            cout<<"Ventas: ";
             cin>>EMPLEADOS[i].ven[j];
         }
-        cout<<"Ingrese el salario del empleado "<<i+1<<": ";
+        cout<<"Salario: ";
         cin>>EMPLEADOS[i].sal;
     }
 
-    float suma=0;
-    float mayor;
+    float suma;
+    float mayor=0;
     int posmayor=0;
 
     for(int i=0;i<n;i++){
-       
-
+    	suma=0;
         for(int j=0;j<12;j++){
             suma=suma+(EMPLEADOS[i].ven[j]);
         }
-
-        mayor=0;
+        
         if(mayor<suma){
             mayor=suma;
             posmayor=i;
