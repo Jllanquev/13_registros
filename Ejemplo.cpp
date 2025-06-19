@@ -52,11 +52,19 @@ int main(){
 
 
     }
+    
     cout << "\nEl empleado con mayores ventas anuales es:\n";
     cout << "Numero: " << EMPLEADOS[posmayor].num << endl;
     cout << "Nombre: " << EMPLEADOS[posmayor].nom << endl;
     cout << "Total de ventas: " <<mayor<< endl;
 
+    cout << "\n>> Empleados con ventas en diciembre < 30:\n";
+    for (int i = 0; i < n; i++) {
+        if (EMPLEADOS[i].ven[11] < 30) {
+            cout << "Numero: " << EMPLEADOS[i].num
+                 << ", Nombre: " << EMPLEADOS[i].nom << endl;
+        }
+    }
 
     return 0;
 }
