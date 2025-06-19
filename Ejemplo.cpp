@@ -39,6 +39,12 @@ int main(){
             suma=suma+(EMPLEADOS[i].ven[j]);
         }
         
+        if(suma>100){
+        	EMPLEADOS[i].sal+= 0.1*EMPLEADOS[i].sal;
+            cout << "\nSalario incrementado en 10% para " << EMPLEADOS[i].nom 
+            << ": " << EMPLEADOS[i].sal << endl;
+		}
+        
         if(mayor<suma){
             mayor=suma;
             posmayor=i;
@@ -50,6 +56,7 @@ int main(){
     cout << "Numero: " << EMPLEADOS[posmayor].num << endl;
     cout << "Nombre: " << EMPLEADOS[posmayor].nom << endl;
     cout << "Total de ventas: " <<mayor<< endl;
+
 
     return 0;
 }
