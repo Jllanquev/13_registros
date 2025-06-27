@@ -19,7 +19,7 @@ void imprimeContacto(contactoEmail &);
 
 int main(){
     int n, op,mod;
-    string nom, user, domain;
+    string nom, user,dom, domain;
     char sex;
     int edad;
     correo email;
@@ -32,7 +32,8 @@ int main(){
         cout<<"1. Agregar contacto"<<endl;
         cout<<"2. Mostrar contactos"<<endl;
         cout<<"3. Modificar contacto"<<endl;
-        cout<<"0. Salir"<<endl;
+        cout<<"4. Mostrar listado de contactos por dominio"<<endl;
+        cout<<"0. Salir"<<endl<<endl;
         cout<<"Elige una opcion: "; cin>>op;
         switch(op){
             case 1:
@@ -73,7 +74,7 @@ int main(){
 			            system("cls");
 			            cout<<"Contacto actual:"<<endl;
 			            imprimeContacto(lista[mod]);
-			            cout<<"\n¿Qué desea modificar?"<<endl;
+			            cout<<"\n¿Que desea modificar?"<<endl;
 			            cout<<"1. Nombre"<<endl;
 			            cout<<"2. Sexo"<<endl;
 			            cout<<"3. Edad"<<endl;
@@ -119,7 +120,24 @@ int main(){
 			        system("pause");
 			    }
 			    break;
-				     
+			case 4: {
+					cout<<"Filtrar contactos por dominio "<<endl;
+					cout<<"Ingrese el dominio a filtrar: "; cin>>dom;
+					bool imprime=false;
+					cout<<"\n";
+					for(int i=0;i<n;i++){
+						if(lista[i].email.domain==dom){
+							imprimeContacto(lista[i]);
+							cout<<"\n";
+							imprime=true;
+						}
+					}
+					if(!imprime){
+						cout<<"No se encontro contactos con el dominio "<<dom;
+					}
+					system("pause");
+					break;
+				}
             case 0:
             	char Finish;
                 cout<<"Esta seguro de salir? (S/N): ";
@@ -158,3 +176,4 @@ void imprimeContacto(contactoEmail &c){
     cout<<"Edad: "<<c.edad<<endl;
     cout<<"Email: "<<c.email.user<<"@"<<c.email.domain<<endl;
 }
+
