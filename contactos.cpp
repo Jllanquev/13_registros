@@ -33,6 +33,7 @@ int main(){
         cout<<"2. Mostrar contactos"<<endl;
         cout<<"3. Modificar contacto"<<endl;
         cout<<"4. Mostrar listado de contactos por dominio"<<endl;
+        cout<<"5. Eliminar contactos"<<endl;
         cout<<"0. Salir"<<endl<<endl;
         cout<<"Elige una opcion: "; cin>>op;
         switch(op){
@@ -138,6 +139,24 @@ int main(){
 					system("pause");
 					break;
 				}
+			case 5: 
+				    for(int i = 0; i < n; i++){
+				        cout << "Contacto #" << i + 1 << " - " << lista[i].nom << endl;
+				    }
+				    cout << "Ingrese el numero del contacto a eliminar: ";
+				    cin >> mod;
+				    mod--;
+				    if(mod >= 0 && mod < n){
+				        for(int i = mod; i < n - 1; i++){
+				            lista[i] = lista[i + 1];  
+				        }
+				        n--; 
+				        cout << "Contacto eliminado correctamente.\n";
+				    } else {
+				        cout << "Indice invalido.\n";
+				    }
+				    system("pause");
+				    break;				
             case 0:
             	char Finish;
                 cout<<"Esta seguro de salir? (S/N): ";
